@@ -1,0 +1,175 @@
+/*estilos a la caja*/
+
+.item{
+    display: inline-block;
+    /* toma lo mejor de estilos en linea y lo mejor de estilos en bloque*/
+    width: 200px;
+    height: 200px;
+    border: 3px cornflowerblue solid;
+}
+/*gradiente : degradé de colores pixel a pixel de un color a otro*/
+/*son fondos en degradé y pueden ser de 2 tipos: pueden ser lineales o radiales. lineal de izq a der de der a izq*/
+
+
+/* LIneal*/
+.cajaA{
+   /* background: linear-gradient(to right,#f5f5f5, #b5b5b5); */
+    /*direccion del gradiente, color de origen y color de llegada,*/
+/*si no le coloco la direcion trabaja por default de arriba hacia abajo*/
+/*los puntos de incio pueden ser top bottom left right*/
+
+    background: linear-gradient(to top,#f5f5f5, #b5b5b5, #c4c3);
+    /*se pueden agregar varios colores*/
+}
+
+.cajaB{
+    background-image: linear-gradient(to bottom left, #9f5d,#8f41,#848484);
+    /* to bottom left o cualquier otra combinacion da la diagonal*/
+    /* esta demuestra que se puede hacer con cualquiera de las 2 propiedades excepto con background-color/ /* y se pueden usar para botones para body para lo que sea*/
+
+}
+/*radiales*/
+
+.cajaC{
+    background: radial-gradient(#2f2f2f, #8f41);
+    /*le paso 2 valores que son los colores que voy a utilizar, y se degradan desde el centro como un circulo*/
+}
+
+/* TRANSFORMACIONES*/
+
+/*una transformacion es una modificacion en la forma en que se ve un elemento*/
+/*todo elemento transformado por CSS cambia la forma en que se ve, pero no el lugar que ocupa*/
+
+
+/*Podemos mover un elemento, escalar su tamaño y girarlo*/
+
+/*trasladar un elemento*/
+
+.cajaUno{
+    background-color: red;
+    transform: translate(10px, 10px);
+    /*grados pensando en el eje x e y*/
+    /*solo cambiamos como se ve un elemento pero no cambiamos la forma, esto es mejor que el position (por ejemplo) esto sirve para que si aprieto un boton se traslade un poco )*/
+}
+/*rotar un elemento*/
+.cajaDos{
+    background-color: #848484;
+    transform: rotate(25deg);
+}
+/*escalar un elemento*/
+.cajaTres{
+    background-color: antiquewhite;
+    transform: scale(1.25,0.75);
+    /*adminte 2 valores separados por " , " el primer valor es el ancho (eje x) el segundo valor es el alto (eje y)*/
+    /*valores mayores a 1 agrandan, valores entre 1 y cero achican y valores negativos escalan dando vuelta*/
+}
+
+/*sesgar un elemento*/
+.cajaCuatro{
+    background-color: aqua;
+    transform: skew(10deg,5deg);
+    /*se trabaja con grados*/
+}
+
+
+/*TRANSICIONES*/
+
+/*Las pseudo-clases nos permiten aplicar estilos a determinados elementos dependiendo de algunos factores externos*/
+
+/*:hover se activacuando paso el puntero del mouse por ese elemento*/
+
+/*ejemplos*/
+
+.divUno{
+    background-color: antiquewhite;
+    
+}
+
+.divUno:hover{
+    background-color: #b5b5b5;
+    height: 320px;
+    width: 320px;
+  /*  transition: all 200ms; */
+    /*la transicion va a evitar que ese cambio entre ambos sea tan drástico, se puede aplicar al de partido com oal de llegada el all es porque se puede especificar a qué se va a transicionar si a la altura o ancho en este caso*/
+    transition: height 1s, width 0.5s; 
+}
+
+.divDos{
+    background-color: aquamarine;
+
+}
+
+.divDos:hover{
+    background-image: url("https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png");
+    filter: grayscale(50%);
+}
+/*
+.divDos {
+    background-color: aquamarine;
+}
+
+.divDos:hover {
+    background-image: url("https://placekitten.com/200/287");
+    filter: grayscale(90%);
+}
+*/
+
+/*ANIMACIONES*/
+
+/* es un efecto que se loopea tantas veces como uno quiera, no depende de un cambio de estado,el elemento se anima desde que se carga la web*/
+
+/*hay que crear una linea de tiempo*/
+
+@keyframes animacion {
+    0% {width: 220px;}
+    25% {width: 240px;}
+    50% {width: 260px;}
+    75% {width: 280px;}
+    100% {width: 300px;}
+}
+
+.animacion{
+    background-color: chocolate;
+
+    /*propiedades que hay que agregar, el nombre del keyframe*/
+    animation-name: animacion;
+    /*le puedo agregar la cantidad de repeticiones que va a tener la animacion*/
+    animation-iteration-count: infinite;
+    /*suavizar la animacion para que se vea mas prolia*/
+    animation-timing-function: ease-in;
+    /*duracion de la animacion*/
+    animation-duration: 2s;
+
+    /*tiempo que demore en empezar otra vez*/
+    animation-delay: 1s; 
+}
+
+/*ejemplo con texto*/
+
+@keyframes texto{
+    0%{opacity: 0%;}
+    100%{opacity: 100%;}
+}
+
+h1{
+    animation-name: texto;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+
+
+/*
+@keyframes texto {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 100%;
+    }
+}
+
+h1 {
+    animation-name: texto;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+} */
